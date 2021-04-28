@@ -76,6 +76,6 @@ app.use('/company', companyroutes);
 
 
 // listen to the port
-app.listen(port, () => {
-    console.log(`Server is running at port ${port}`);
-});
+app.listen(process.env.PORT || 5000, () => {
+    console.log("The server is now running on port ", process.env.PORT)
+})
