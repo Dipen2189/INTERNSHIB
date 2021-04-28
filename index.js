@@ -54,7 +54,7 @@ app.use((req, res, next) => {
 app.use(flash());
 
 
-app.locals.baseURL = `http://localhost:${port}`;
+app.locals.baseURL = `http://localhost:${ process.env.PORT}`;
 
 
 //For Static Files 
