@@ -54,8 +54,7 @@ app.use((req, res, next) => {
 app.use(flash());
 
 
-app.locals.baseURL = `http://localhost:${ process.env.PORT}`;
-
+app.locals.baseURL = `https://interns-hub.herokuapp.com:${ process.env.PORT}`;
 
 //For Static Files 
 app.use(express.static('public'))
