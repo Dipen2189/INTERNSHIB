@@ -1,0 +1,140 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card nestable-cart">
+            <div class="card-title text-center">
+                <h1>Edit your Profile</h1>
+            </div>
+
+            <div class="container col-sm-12" style="margin: auto 25%;" id="mainform">
+                <div id="signupbox" style=" margin-top:40px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <form class="form-horizontal" role="form" method="post" action="/student/studedit/<%= result.stud_id%>" onSubmit="return checkblank(this);">
+                        <input type="hidden" name="stud_id" value="<%= result.stud_id%>">
+                        <div id="signupalert" style="display:none" class="alert alert-danger">
+                            <p>Please fill this!</p>
+                        </div>
+
+                        <% if ( SuccessMsg.length > 0 ) { %>
+                            <div class="alert alert-success offset-md-1 col-md-7" role="alert">
+                                <p>Message:
+                                    <%= SuccessMsg %>
+                                </p>
+                            </div>
+                            <% } %>
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label for="name" class="padding-top-7" class="control-label">Name</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="stud_name" placeholder="First Middle Last" value="<%= result.stud_name %>">
+                                    </div><br><br>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label for="emailid" class="padding-top-7" class="control-label">Email ID</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="email" class="form-control" name="emailid" placeholder="eg:abc@xyz.com" value="<%= result.emailid %>">
+                                    </div><br><br>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label for="user_name" class="padding-top-7" class="control-label">User Name</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="username" placeholder="User Name" value="<%= result.username %>">
+                                    </div><br><br>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label for="clg_name" class="padding-top-7" class="control-label">College name</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="clg_name" placeholder="College name" value="<%= result.clg_name %>">
+                                    </div><br><br>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label for="branch" class="padding-top-7" class="control-label">Branch</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="radio ">
+                                            <input type="radio" class="control-input" <%if (result.branch=='CE' ) { %> checked="checked"
+                                            <% } %> name="branch" value="CE">
+                                                <label class="control-label" for="CE">Computer Engineering</label>
+                                        </div>
+                                        <div class="radio custom">
+                                            <input type="radio" class="control-input" <%if (result.branch=='CSE' ) { %> checked="checked"
+                                            <% } %> name="branch" value="CSE">
+                                                <label class="control-label" for="CSE">Computer Science Engineering</label>
+                                        </div>
+                                        <div class="radio ">
+                                            <input type="radio" class="control-input" <%if (result.branch=='IT' ) { %> checked="checked"
+                                            <% } %> name="branch" value="IT">
+                                                <label class="control-label" for="IT">Information Technology </label>
+                                        </div>
+                                    </div>
+                                </div><br>
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label for="semester" class="padding-top-7" class="control-label">Semester</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="number" class="form-control" name="semester" placeholder="Current semester" value="<%= result.semester %>">
+                                    </div><br><br>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label for="cgpa" class="padding-top-7" class="control-label">CGPA</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="number" class="form-control" name="cgpa" placeholder="Uptil last semester" value="<%= result.cgpa %>">
+                                    </div><br><br>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label for="yop" class="padding-top-7" class="control-label">Year of pass-out</label>
+                                    </div>
+                                    <div class="col-md-8" class="margin-top-7">
+                                        <select name="yop">
+                                    <option <%if (result.yop == '2020') { %> selected="selected" <% } %> value="2020">2020</option>
+                                    <option <%if (result.yop == '2021') { %> selected="selected" <% } %> value="2021">2021</option>
+                                    <option <%if (result.yop == '2022') { %> selected="selected" <% } %> value="2022">2022</option>
+                                    <option <%if (result.yop == '2023') { %> selected="selected" <% } %> value="2023">2023</option>
+                                    <option <%if (result.yop == '2024') { %> selected="selected" <% } %> value="2024">2024</option>
+                                </select>
+                                    </div> <br><br>
+                                </div>
+
+                                <!--<div class="form-group row">
+                            <div class="col-md-4">
+                                <label for="resume" class="padding-top-7" class="control-label">Upload Resume</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="file" class="form-control" name="resum" value="<%= result.resum %>" > 
+                                View Resume Button-->
+                                <!--<div class="offset-md-4 col-md-8 margin-bottom-15" style="padding-top:10px;">
+                                    <a href="/student/download/<%= result.stud_id%>" target="_blank"><button type="button" class="btn btn-info button text-center">Download Resume</button></a>
+                                </div>
+                            </div>
+                        </div><br>-->
+
+                                <div class="form-group">
+                                    <!--Upload Button -->
+                                    <div class="offset-md-3 col-md-9 margin-bottom-15">
+                                        <button type="submit" class="btn btn-info button text-center">Update</button>
+                                    </div>
+                                </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,146 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card nestable-cart">
+            <div class="card-title text-center">
+                <h1>Register as Student</h1>
+            </div>
+            <% if ( ErrorMsg.length > 0 ) { %>
+                <div class="alert alert-danger offset-md-2 col-md-7 text-center" role="alert">
+                    <p>Message:
+                        <%=ErrorMsg %>
+                    </p>
+                </div>
+                <% } %>
+
+
+                    <div class="container col-sm-12" style="margin: auto 25%;" id="mainform">
+                        <div id="signupbox" style=" margin-top:40px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                            <form class="form-horizontal" role="form" method="post" action="/studregister" onSubmit="return checkblank(this)" enctype="multipart/form-data">
+
+                                <div id="signupalert" style="display:none" class="alert alert-danger">
+                                    <p>Please fill this!</p>
+                                    <span></span>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label for="name" class="padding-top-7" class="control-label">Name</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="stud_name" placeholder="First Middle Last" required>
+                                    </div><br><br>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label for="emailid" class="padding-top-7" class="control-label">Email ID</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="email" class="form-control" name="emailid" placeholder="eg:abc@xyz.com" required>
+                                    </div><br><br>
+                                </div>
+
+                                <div class="form-group row">
+
+                                    <div class="col-md-4">
+                                        <label for="user_name" class="padding-top-7" class="control-label">Username</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="username" placeholder="Username" required>
+                                    </div><br><br>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label for="password" class="padding-top-7" class="control-label">Password</label>
+                                    </div>
+                                    <div class="col-md-8 toggle">
+                                        <input type="password" class="form-control" name="password" id="password2" placeholder="Password" required>
+                                        <i class="far fa-eye" id="studpassword"></i>
+                                    </div><br><br>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label for="clg_name" class="padding-top-7" class="control-label">College name</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="clg_name" placeholder="College name" required>
+                                    </div><br><br>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label for="branch" class="padding-top-7" class="control-label">Branch</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="radio">
+                                            <input type="radio" class="control-input" name="branch" value="CE">
+                                            <label class="control-label" for="CE">Computer Engineering</label>
+                                        </div>
+                                        <div class="radio">
+                                            <input type="radio" class="control-input" name="branch" value="CSE">
+                                            <label class="control-label" for="CSE">Computer Science and Engineering</label>
+                                        </div>
+                                        <div class="radio">
+                                            <input type="radio" class="control-input" name="branch" value="IT">
+                                            <label class="control-label" for="IT">Information Technology</label>
+                                        </div>
+                                    </div>
+                                </div><br>
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label for="semester" class="padding-top-7" class="control-label">Semester</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="number" class="form-control" name="semester" placeholder="Current semester" required>
+                                    </div><br><br>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label for="cgpa" class="padding-top-7" class="control-label">CGPA</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="number" step="0.01" class="form-control" name="cgpa" placeholder="Uptil last semester" required>
+                                    </div><br><br>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label for="yop" class="padding-top-7" class="control-label">Year of pass-out</label>
+                                    </div>
+                                    <div class="col-md-8" class="margin-top-7">
+                                        <select name="yop">
+                                        <option name="2020" value="2020">2020</option>
+                                        <option name="2021" value="2021">2021</option>
+                                        <option name="2022" value="2022">2022</option>
+                                        <option name="2023" value="2023">2023</option>
+                                        <option name="2024" value="2024">2024</option>
+                                    </select>
+                                    </div> <br><br>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label for="resum" class="padding-top-7" class="control-label">Upload Resume</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="file" class="form-control" name="resum">
+                                    </div>
+                                </div><br>
+
+                                <div class="form-group">
+                                    <!-- Button -->
+                                    <div class="offset-md-3 col-md-9 margin-bottom-10">
+                                        <button type="submit" class="btn btn-info button text-center"><i class="icon-hand-right"></i>Register</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+        </div>
+    </div>
+</div>

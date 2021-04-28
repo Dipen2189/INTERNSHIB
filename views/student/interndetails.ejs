@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="card-title text-center">
+        <h3 class="pt-3 text-center text-muted"><%= result.cmp_name %> Internship Details</h3>
+    </div>
+</div>
+
+<div class="container col-sm-12" style="margin: auto 25%;" id="mainform">
+    <div style=" margin-top:10px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+<% if ( SuccessMsg.length > 0 ) { %>
+    <div class="alert alert-success offset-md-3 col-md-6 text-center" role="alert">
+        <p>Message: <%= SuccessMsg %> </p>
+    </div>
+<% } %>
+    </div></div>
+
+<div class="row"> 
+    <div class="row py-3">
+        <div class="col-md-12 m-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="py-2"><strong><a href="#">Title: <%= result.title %></a></strong></h4>
+                    <h6 class="card-subtitle mb-4 text-muted">Location: <%= result.city %></h6>
+                    <div class="table-responsive">
+                        <table class="table table-borderless">
+                            <thead>
+                                <tr class="text-muted">
+                                    <th>Start Date</th>
+                                    <th>Duration</th>
+                                    <th>Stipend</th>
+                                    <th>Posted on</th>
+                                    <th>Apply by</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th><%= moment(result.start_date).format('Do MMMM, YYYY') %></th>
+                                    <th><%= result.duration %> <%= result.duration_per %></th>
+                                    <th>₹ <%= result.stipend %> per <%= result.duration_per %></th>
+                                    <th><%= moment(result.start_date).format('Do MMMM, YYYY') %></th>
+                                    <th><%= moment(result.last_date).format('Do MMMM, YYYY') %></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer py-1 " style="text-align: right;">
+                        <a href="/student/studhome" >Back</a>
+                    </div> 
+                </div>
+            </div> 
+            
+            <div class="row">
+                <div class="col-md-12 m-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="font-weight-bold">Number of Interns: </p>
+                            <p><%= result.no_interns %></p>
+                            <p class="font-weight-bold">Is part time allowed ?</p>
+                            <p><%= result.part_time %></p>
+                            <p class="font-weight-bold">Skills Required:</p>
+                            <p><%= JSON.parse(result.skills) %></p>
+                            <p class="font-weight-bold">About the company:</p>
+                            <p><%= result.aboutus %></p>
+                            <p class="font-weight-bold">About Internship:</p>
+                            <p><%= result.about %></p>
+                            <p class="font-weight-bold">Who can Apply?</p>
+                            <p><%= result.apply %></p>
+                            <p class="font-weight-bold">Perks Offered:</p>
+                            <p><%= JSON.parse(result.perks) %></p> 
+                        </div>
+                        <form class="form-horizontal" role="form" method="post" action="/student/apply/<%= result.p_id %>" onSubmit="return checkblank(this);">
+                            <input type="hidden" name="stud_id" value="<%= locals.user %>">
+                            <input type="hidden" name="p_id" value="<%= result.p_id %>">
+                            <input type="hidden" name="cmp_id" value="<%= result.cmp_id%>">
+                        <div class="card-footer py-1  text-center">
+                            <button type="submit" class="btn btn-info button">Apply Now</button>
+                            <a href="/student/studhome" class="rhs">Back</a>
+                        </div>
+                        </form> 
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>

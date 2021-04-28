@@ -1,0 +1,261 @@
+<section class="text-gray-600 body-font " style="background-color: 524d5138;">
+    <% if ( SuccessMsg.length > 0 ) { %>
+        <div class="alert alert-success offset-md-2 col-md-7 text-center" role="alert">
+            <p>Message: <%= SuccessMsg %> </p>
+        </div>
+    <% } %>
+
+    <% if ( ErrorMsg.length > 0 ) { %>
+        <div class="alert alert-danger offset-md-2 col-md-7 text-center" role="alert">
+            <p>Message: <%= ErrorMsg %> </p>
+        </div>
+    <% } %>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="pt-3 text-center text-muted">Edit the Internship</h3>
+        </div>
+       
+    </div>
+    <div class="row py-3">
+        <div class="col-md-12 m-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="title">Title</label>
+                                    <input type="text" name="title" value="<%= result.title %>" class="form-control" aria-describedby="titleHelp" placeholder="e.g. Web Development, Android Development" required maxlength="250">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="hidden"  name="p_id" value="<%= result.p_id %>" class="form-control" id="p_id">
+                        </div>
+                        <div>
+                            <input type="hidden"  name="cmp_id" value="<%= result.cmp_id %>" class="form-control" id="cmp_id">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 ">
+                                <div class="form-group">
+                                    <label for="start_date">Start Date for Internship</label>
+                                    <input type="date" name="start_date" value="<%= moment(result.start_date).format('YYYY-MM-DD') %>"class="form-control" id="start_date" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="last_date">Last Date for applying</label>
+                                    <input type="date" name="last_date" value="<%= moment(result.start_date).format('YYYY-MM-DD') %>" class="form-control" id="last_date" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row ">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="loc_intern">Other Locations</label>
+                                   as <%=  %>
+                                    
+                                    <select class="js-example-basic-multiple" style="width: 100%;" name="loc_intern" multiple="multiple" required>
+                                     <option <%if (result.loc_intern.indexOf("Ahmedabad") != -1) { %> selected="selected" <% } %> value="Ahmedabad">Ahmedabad</option>
+                                     <option <%if (result.loc_intern.indexOf("Agartala") != -1) { %> selected="selected" <% } %> value="Agartala">Agartala</option>
+                                     <option <%if (result.loc_intern.indexOf("Anand") != -1) { %> selected="selected" <% } %> value="Anand">Anand</option>
+                                     <option <%if (result.loc_intern.indexOf("Aizawl") != -1) { %> selected="selected" <% } %> value="Aizawl">Aizawl</option>
+                                     <option <%if (result.loc_intern.indexOf("Bangalore") != -1) { %> selected="selected" <% } %> value="Bangalore">Bangalore</option>
+                                     <option <%if (result.loc_intern.indexOf("Bharuch") != -1) { %> selected="selected" <% } %> value="Bharuch">Bharuch</option>
+                                     <option <%if (result.loc_intern.indexOf("Bhavnagar") != -1) { %> selected="selected" <% } %> value="Bhavnagar">Bhavnagar</option>
+                                     <option <%if (result.loc_intern.indexOf("Bhubaneswar") != -1) { %> selected="selected" <% } %> value="Bhubaneswar">Bhubaneswar</option>
+                                     <option <%if (result.loc_intern.indexOf("Bhopal") != -1) { %> selected="selected" <% } %> value="Bhopal">Bhopal</option>
+                                     <option <%if (result.loc_intern.indexOf("Bhuj") != -1) { %> selected="selected" <% } %> value="Bhuj">Bhuj</option>
+                                     <option <%if (result.loc_intern.indexOf("Chandigarh") != -1) { %> selected="selected" <% } %> value="Chandigarh">Chandigarh</option>
+                                        <option <%if (result.loc_intern.indexOf("Chennai") != -1) { %> selected="selected" <% } %> value="Chennai">Chennai</option>
+                                        <option <%if (result.loc_intern.indexOf('Coimbatore') != -1) { %> selected="selected" <% } %> value="Coimbatore">Coimbatore</option>
+                                        <option <%if (result.loc_intern.indexOf("Dahod") != -1) { %> selected="selected" <% } %> value="Dahod">Dahod</option>
+                                        <option <%if (result.loc_intern.indexOf("Dehradun") != -1) { %> selected="selected" <% } %> value="Dehradun">Dehradun</option>
+                                        <option <%if (result.loc_intern.indexOf("Delhi") != -1) { %> selected="selected" <% } %> value="Delhi">Delhi</option>
+                                        <option <%if (result.loc_intern.indexOf("Dispur") != -1) { %> selected="selected" <% } %> value="Dispur">Dispur</option>
+                                        <option <%if (result.loc_intern.indexOf("Gangtok") != -1) { %> selected="selected" <% } %> value="Gangtok">Gangtok</option>
+                                        <option <%if (result.loc_intern.indexOf("Gandhinagar") != -1) { %> selected="selected" <% } %> value="Gandhinagar">Gandhinagar</option>
+                                        <option <%if (result.loc_intern.indexOf("Goa") != -1) { %> selected="selected" <% } %> value="Goa">Goa</option>
+                                        <option <%if (result.loc_intern.indexOf("Godhra") != -1) { %> selected="selected" <% } %> value="Godhra">Godhra</option>
+                                        <option <%if (result.loc_intern.indexOf("Hyderabad") != -1) { %> selected="selected" <% } %> value="Hyderabad">Hyderabad</option>
+                                        <option <%if (result.loc_intern.indexOf("Indore") != -1) { %> selected="selected" <% } %> value="Indore">Indore</option>
+                                        <option <%if (result.loc_intern.indexOf("Imphal") != -1) { %> selected="selected" <% } %> value="Imphal">Imphal</option>
+                                        <option <%if (result.loc_intern.indexOf("Itanagar") != -1) { %> selected="selected" <% } %> value="Itanagar">Itanagar</option>
+                                        <option <%if (result.loc_intern.indexOf("Jaipur") != -1) { %> selected="selected" <% } %> value="Jaipur">Jaipur</option>
+                                        <option <%if (result.loc_intern.indexOf("Jamnagar") != -1) { %> selected="selected" <% } %> value="Jamnagar">Jamnagar</option>
+                                        <option <%if (result.loc_intern.indexOf("Junagadh") != -1) { %> selected="selected" <% } %> value="Junagadh">Junagadh</option>
+                                        <option <%if (result.loc_intern.indexOf("Kolkata") != -1) { %> selected="selected" <% } %> value="Kolkata">Kolkata</option>
+                                        <option <%if (result.loc_intern.indexOf("Kohima") != -1) { %> selected="selected" <% } %> value="Kohima">Kohima</option>
+                                        <option <%if (result.loc_intern.indexOf("Lucknow") != -1) { %> selected="selected" <% } %> value="Lucknow">Lucknow</option>
+                                        <option <%if (result.loc_intern.indexOf("Morbi") != -1) { %> selected="selected" <% } %> value="Morbi">Morbi</option>
+                                        <option <%if (result.loc_intern.indexOf("Modasa") != -1) { %> selected="selected" <% } %> value="Modasa">Modasa</option>
+                                        <option <%if (result.loc_intern.indexOf('Mumbai') != -1 ) { %> selected="selected" <% } %> value="Mumbai">Mumbai</option>
+                                        <option <%if (result.loc_intern.indexOf('Nadiad') != -1 ) { %> selected="selected" <% } %> value="Nadiad">Nadiad</option>
+                                        <option <%if (result.loc_intern.indexOf('Navsari') != -1 ) { %> selected="selected" <% } %> value="Navsari">Navsari</option>
+                                        <option <%if (result.loc_intern.indexOf("Nasik") != -1) { %> selected="selected" <% } %> value="Nasik">Nasik</option>
+                                        <option <%if (result.loc_intern.indexOf('Palanpur') != -1 ) { %> selected="selected" <% } %> value="Palanpur">Palanpur</option>
+                                        <option <%if (result.loc_intern.indexOf('Patan') != -1 ) { %> selected="selected" <% } %> value="Patan">Patan</option>
+                                        <option <%if (result.loc_intern.indexOf('Patna') != -1 ) { %> selected="selected" <% } %> value="Patna">Patna</option>
+                                        <option <%if (result.loc_intern.indexOf("Pune") != -1) { %> selected="selected" <% } %> value="Pune">Pune</option>
+                                        <option <%if (result.loc_intern.indexOf('Ranchi') != -1 ) { %> selected="selected" <% } %> value="Ranchi">Ranchi</option>
+                                        <option <%if (result.loc_intern.indexOf('Rajkot') != -1 ) { %> selected="selected" <% } %> value="Rajkot">Rajkot</option>
+                                        <option <%if (result.loc_intern.indexOf('Raipur') != -1 ) { %> selected="selected" <% } %> value="Raipur">Raipur</option>
+                                        <option <%if (result.loc_intern.indexOf('Shimla') != -1 ) { %> selected="selected" <% } %> value="Shimla">Shimla</option>
+                                        <option <%if (result.loc_intern.indexOf('Shillong') != -1 ) { %> selected="selected" <% } %> value="Shillong">Shillong</option>
+                                        <option <%if (result.loc_intern.indexOf("Surat") != -1) { %> selected="selected" <% } %>value="Surat">Surat</option>
+                                        <option <%if (result.loc_intern.indexOf('Surendranagar') != -1 ) { %> selected="selected" <% } %> value="Surendranagar">Surendranagar</option>
+                                        <option <%if (result.loc_intern.indexOf('Thiruvananthapuram') != -1 ) { %> selected="selected" <% } %> value="Thiruvananthapuram">Thiruvananthapuram</option>
+                                        <option <%if (result.loc_intern.indexOf('Valsad') != -1 ) { %> selected="selected" <% } %> value="Valsad">Valsad</option>
+                                        <option <%if (result.loc_intern.indexOf("Vadodara") != -1) { %> selected="selected" <% } %> value="Vadodara">Vadodara</option>
+                                        <option <%if (result.loc_intern.indexOf("Vapi") != -1) { %> selected="selected" <% } %>value="Vapi">Vapi</option>
+                                      </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="duration">Duration</label>
+                                    <input type="number" value="<%= result.duration %>" class="form-control" name="duration" id="duration" placeholder="Duration" required>
+                                </div>
+                            </div>
+                            <div class="col-md-2 mt-4">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="months" <%if (result.duration_per == 'month') { %> checked="checked" <% } %> name="duration_per" value="month" class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="months">months</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" <%if (result.duration_per == 'week') { %> checked="checked" <% } %> id="weeks" name="duration_per" value="week" class="custom-control-input">
+                                    <label class="custom-control-label" for="weeks">weeks</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="stipend">Stipend</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend">₹</span>
+                                    </div>
+                                    <input type="number" value="<%= result.stipend %>"  class="form-control" id="stipend" name="stipend" placeholder="Stipend" aria-describedby="inputGroupPrepend" required>
+                                </div>
+                            </div>
+                        <div class="col-md-3 mt-4">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="s_months" <%if (result.stipend_per == 'month') { %> checked="checked" <% } %> name="stipend_per" value="per month" class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="s_months"> per month</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="s_weeks" <%if (result.stipend_per == 'week') { %> checked="checked" <% } %> name="stipend_per" value="per week" class="custom-control-input">
+                                    <label class="custom-control-label" for="s_weeks"> per week</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="no_interns">Number of Interns Required</label>
+                                    <input type="number" value="<%= result.no_interns %>" name="no_interns" class="form-control" id="no_interns" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row my-3">
+                            <div class="col-md-4">
+                                Is part time allowed for this internship ?
+                            </div>
+                            <div class="col-md-1">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="regular" <%if (result.part_time == 'yes') { %> checked="checked" <% } %> name="part_time" value="yes" class="custom-control-input">
+                                    <label class="custom-control-label" for="regular">Yes</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="workfromhome" <%if (result.part_time == 'no') { %> checked="checked" <% } %> name="part_time" value="no" class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="workfromhome">No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="skills">Skills Required</label>
+                                    <select class="js-example-basic-multiple" style="width: 100%;" name="skills" multiple="multiple" required>
+                                        <option <%if (result.skills.indexOf("Python") != -1) { %> selected="selected" <% } %> value="Python">Python</option>
+                                        <option <%if (result.skills.indexOf("Java") != -1) { %> selected="selected" <% } %> value="Java">Java</option>
+                                        <option <%if (result.skills.indexOf("Javascript") != -1) { %> selected="selected" <% } %>value="Javascript">Javascript</option>
+                                        <option <%if (result.skills.indexOf("Go") != -1) { %> selected="selected" <% } %>value="Go">Go</option>
+                                        <option <%if (result.skills.indexOf("Swift") != -1) { %> selected="selected" <% } %> value="Swift">Swift</option>
+                                        <option <%if (result.skills.indexOf("C") != -1) { %> selected="selected" <% } %> value="C">C</option>
+                                        <option <%if (result.skills.indexOf("C++") != -1) { %> selected="selected" <% } %> value="C++">C++</option>
+                                        <option <%if (result.skills.indexOf("PHP") != -1) { %> selected="selected" <% } %>value="PHP">PHP</option>
+                                        <option <%if (result.skills.indexOf("Web Development") != -1) { %> selected="selected" <% } %>value="Web Development">Web Development</option>
+                                        <option <%if (result.skills.indexOf("App Development") != -1) { %> selected="selected" <% } %> value="App Development">App Development</option>
+                                        <option <%if (result.skills.indexOf("Typescript") != -1) { %> selected="selected" <% } %> value="Typescript">Typescript</option>
+                                        <option <%if (result.skills.indexOf("Nodejs") != -1) { %> selected="selected" <% } %> value="Nodejs">Nodejs</option>
+                                        <option <%if (result.skills.indexOf("Reactjs") != -1) { %> selected="selected" <% } %> value="Reactjs">Reactjs</option>
+                                        <option <%if (result.skills.indexOf("Android") != -1) { %> selected="selected" <% } %> value="Android">Android</option>
+                                        <option <%if (result.skills.indexOf("Kotlin") != -1) { %> selected="selected" <% } %>value="Kotlin">Kotlin</option>
+                                        <option <%if (result.skills.indexOf("Flutter") != -1) { %> selected="selected" <% } %> value="Flutter">Flutter</option>
+                                        <option <%if (result.skills.indexOf("Dart") != -1) { %> selected="selected" <% } %> value="Dart">Dart</option>
+                                        <option <%if (result.skills.indexOf("AI") != -1) { %> selected="selected" <% } %> value="AI">AI</option>
+                                        <option <%if (result.skills.indexOf("Machine Learning") != -1) { %> selected="selected" <% } %>value="Machine Learning">Machine Learning</option>
+                                        <option <%if (result.skills.indexOf("Data Science") != -1) { %> selected="selected" <% } %>value="Data Science">Data Science</option>
+                                        <option <%if (result.skills.indexOf("Deep Learning") != -1) { %> selected="selected" <% } %> value="Deep Learning">Deep Learning</option>
+                                        <option <%if (result.skills.indexOf("Embbeded System") != -1) { %> selected="selected" <% } %> value="Embbeded System">Embbeded System</option>
+                                        <option <%if (result.skills.indexOf("Assembly Coding") != -1) { %> selected="selected" <% } %> value="Assembly Coding">Assembly Coding</option>
+                                        <option <%if (result.skills.indexOf("Full Stack Developer") != -1) { %> selected="selected" <% } %> value="Full Stack Developer">Full Stack Developer</option>
+                                        <option <%if (result.skills.indexOf("MySQL") != -1) { %> selected="selected" <% } %> value="MySQL">MySQL</option>
+                                        <option <%if (result.skills.indexOf("MongoDB") != -1) { %> selected="selected" <% } %> value="MongoDB">MongoDB</option>
+                                        <option <%if (result.skills.indexOf("Firebase") != -1) { %> selected="selected" <% } %> value="Firebase">Firebase</option>
+                                        <option <%if (result.skills.indexOf("DotNet") != -1) { %> selected="selected" <% } %> value="DotNet">.Net</option>
+                                        <option <%if (result.skills.indexOf("AWS") != -1) { %> selected="selected" <% } %> value="AWS">AWS</option>
+                                        <option <%if (result.skills.indexOf("Cloud Computing") != -1) { %> selected="selected" <% } %> value="Cloud Computing">Cloud Computing</option>
+                                        <option <%if (result.skills.indexOf("Cyber Security") != -1) { %> selected="selected" <% } %> value="Cyber Security">Cyber Security</option>
+                                        <option <%if (result.skills.indexOf("Angularjs") != -1) { %> selected="selected" <% } %> value="Angularjs">Angularjs</option>
+                                        <option <%if (result.skills.indexOf("IOT") != -1) { %> selected="selected" <% } %> value="IOT">IOT</option>
+                                        <option <%if (result.skills.indexOf("R programming") != -1) { %> selected="selected" <% } %> value="R programming">R programming</option>
+                                    </select>                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="about">About this Internship</label>
+                                    <textarea name="about" id="about" class="form-control" rows="5" placeholder="Write a bit about this internship" required><%= result.about %></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="apply">Who can apply?</label>
+                                    <textarea name="apply" id="apply" class="form-control" rows="5" placeholder="What characteristics you want in candidates?" required><%= result.apply %></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="perks">Perks Offered</label>
+                                    <select class="js-example-basic-multiple" style="width: 100%;" name="perks" multiple="multiple" required>
+                                        <option <%if (result.perks.indexOf("Flexible Schedule") != -1) { %> selected="selected" <% } %> value="Flexible Schedule">Flexible Schedule</option>
+                                           <option <%if (result.perks.indexOf("Offer Letter") != -1) { %> selected="selected" <% } %> value="Offer Letter">Offer Letter</option>
+                                           <option <%if (result.perks.indexOf("Recommendation Letter") != -1) { %> selected="selected" <% } %> value="Recommendation Letter">Recommendation Letter</option>
+                                           <option <%if (result.perks.indexOf("Certificate") != -1) { %> selected="selected" <% } %> value="Certificate">Certificate</option>
+                                           <option <%if (result.perks.indexOf("5 Days a Week") != -1) { %> selected="selected" <% } %> value="5 Days a Week">5 Days a Week</option>
+                                         </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ID of Current user -->
+                        
+                        <button type="submit" class="btn btn-primary float-right">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

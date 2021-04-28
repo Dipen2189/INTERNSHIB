@@ -1,0 +1,85 @@
+<br><br>
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="pt-3 text-center text-muted">Applications Applied</h1>
+    </div>
+  <div class="col-lg-12">
+      <div class="card">
+          
+          <div class="bootstrap-data-table-panel">
+            
+              <input type="hidden" name="stud_id" value="<%= result.stud_id %>">
+             
+              <div class="table-responsive">                  
+                  <table id="row-select" class="display table table-borderd table-hover">
+                      <thead>
+                          <tr>
+                              <th>Sr. No.</th>
+                              <th>Company's name</th>
+                              <th>State</th>
+                              <th>City</th>
+                              <th>Status</th>
+                          </tr>
+                      </thead>
+
+                      <tbody>
+                        <% result.forEach(function(show, index) { %>
+                        <tr>  
+                            <th><%= index + 1 %></th>                                                      
+                            <th><%= show.cmp_name %></th>
+                            <th><%= show.state %></th>
+                            <th><%= show.city %></th>   
+                            <th><% if (show.status == 0) 
+                                {%> <h5 style="color: blue;"><strong>Pending</strong></h5> <%} else if(show.status == 1) {%>
+                                <h5 style="color: green;"><strong>Accepted</strong></h5> <%} else if(show.status == 2) {%>
+                                <h5 style="color: red;"><strong>Rejected</strong></h5> <%} else {%> <h6>Error</h6> <%} %>
+                            </th>                                                      
+                        </tr>
+                       <% }) %> 
+                      </tbody>
+
+                      <!--<tbody>
+                          <% for(var i=0; i < 30 ; i++) {%>
+                          <tr>
+                            <th><%= i+1 %></th>
+                            <th><%= result.cmp_name %></th>
+                            <th><%= result.state %></th>
+                            <th><%= result.city %></th>
+                            <th>status</th>
+                          </tr>
+                          <% } %> 
+                      </tbody>-->
+                       
+                      <tfoot>
+                        <tr>
+                          <th>Sr. No</th>
+                          <th>Company's name</th>
+                          <th>State</th>
+                          <th>City</th>
+                          <th>Status</th>
+                      </tr>
+                      </tfoot>
+                  </table>
+              </div>
+          </div>
+      </div>
+      <!-- /# card -->
+  </div>
+  <!-- /# column -->
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src=" https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+<script src=" https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+  $(document).ready(function(){
+  $('#row-select').DataTable({
+    pageLength: 10,
+    filter: true,
+    deferRender: true,
+    scrollCollapse: true,
+  });
+});
+
+</script>

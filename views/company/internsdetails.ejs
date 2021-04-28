@@ -1,0 +1,85 @@
+
+
+<section class="text-gray-600 body-font " style="background-color: 524d5138;">
+    <% if ( SuccessMsg.length > 0 ) { %>
+        <div class="alert alert-success offset-md-2 col-md-7 text-center" role="alert">
+            <p>Message: <%= SuccessMsg %> </p>
+        </div>
+    <% } %>
+
+    <% if ( ErrorMsg.length > 0 ) { %>
+        <div class="alert alert-danger offset-md-2 col-md-7 text-center" role="alert">
+            <p>Message: <%= ErrorMsg %> </p>
+        </div>
+    <% } %>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="pt-3 text-center text-muted">Internship Details</h3>
+        </div>
+    </div>
+    <div class="row"> 
+        <div class="row py-3">
+            <div class="col-md-12 m-auto">
+                <div class="card">
+                    <div class="card-body">
+                            <h4 class="py-2 " ><strong><a href="#">Title: <%= result.title %></a></strong></h4>
+                            
+                            <h6 class="card-subtitle mb-4 text-muted">Location: <%= result.city %></h6>
+                            <div class="table-responsive">
+                                <table class="table table-borderless">
+                                    <thead>
+                                        <tr class="text-muted">
+                                            <th>Started Date</th>
+                                            <th>Duration</th>
+                                            <th>Stipend</th>
+                                            <th>Posted on</th>
+                                            <th>Apply by</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th><%= moment(result.start_date).format('Do MMMM, YYYY') %></th>
+                                            <th><%= result.duration %> <%= result.duration_per %>/s</th>
+                                            <th>₹ <%= result.stipend %> per <%= result.duration_per %></th>
+                                            <th><%= moment(result.curr_date).format('Do MMMM, YYYY') %></th>
+                                            <th><%= moment(result.last_date).format('Do MMMM, YYYY') %></th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                    </div>
+                    <div class="card-footer py-1">
+                        <a class="float-right text-info" href="/company/home/<%= result.cmp_id %>">Back</a> 
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="col-md-12 m-auto">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="font-weight-bold">Other Locations: </p>
+                                <p><%= JSON.parse(result.loc_intern) %></p>
+                                <p class="font-weight-bold">Number of Interns: </p>
+                                <p><%= result.no_interns %></p>
+                                <p class="font-weight-bold">Is part time allowed for this internship ?</p>
+                                <p><%= result.part_time %></p>
+                                <p class="font-weight-bold">Skills Required:</p>
+                                <p><%= JSON.parse(result.skills) %></p>
+                                <p class="font-weight-bold">About Internship:</p>
+                                <p><%= result.about %></p>
+                                <p class="font-weight-bold">Who can Apply?</p>
+                                <p><%= result.apply %></p>
+                                <p class="font-weight-bold">Perks Offered:</p>
+                                <p><%= JSON.parse(result.perks) %></p> 
+                            </div>
+                            <div class="card-footer py-1">
+                     
+                                <a class="float-right text-info" href="/company/postedit/<%= result.p_id %>">Edit Details</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</section>

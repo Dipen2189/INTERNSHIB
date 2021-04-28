@@ -1,0 +1,90 @@
+<section class="text-gray-600 body-font " style="background-color: 524d5138;">
+    <% if ( SuccessMsg.length > 0 ) { %>
+        <div class="alert alert-success offset-md-2 col-md-7 text-center" role="alert">
+            <p>Message:
+                <%= SuccessMsg %>
+            </p>
+        </div>
+        <% } %>
+
+            <% if ( ErrorMsg.length > 0 ) { %>
+                <div class="alert alert-danger offset-md-2 col-md-7 text-center" role="alert">
+                    <p>Message:
+                        <%= ErrorMsg %>
+                    </p>
+                </div>
+                <% } %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="pt-3 text-center text-muted">Student Details</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row py-3">
+                            <div class="col-md-12 m-auto">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="py-2 "><strong><a href="#">Student Name: <%= result.stud_name %></a></strong></h4>
+
+                                        <h6 class="card-subtitle mb-4 text-muted">Emailid:
+                                            <%= result.emailid %>
+                                        </h6>
+                                        <div>
+                                            <input type="hidden" name="apply_id" value="<%= result.apply_id %>" class="form-control" id="apply_id">
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table class="table table-borderless">
+                                                <thead>
+                                                    <tr class="text-muted">
+                                                        <th>Username</th>
+                                                        <th>College Name</th>
+                                                        <th>Semester</th>
+                                                        <th>Branch</th>
+                                                        <th>Cgpa</th>
+                                                        <th>Year of Passout</th>
+                                                        <th>Resume</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>
+                                                            <%= result.username %>
+                                                        </th>
+                                                        <th>
+                                                            <%= result.clg_name %>
+                                                        </th>
+                                                        <th>
+                                                            <%= result.semester %>
+                                                        </th>
+                                                        <th>
+                                                            <%= result.branch%>
+                                                        </th>
+                                                        <th>
+                                                            <%= result.cgpa %>
+                                                        </th>
+                                                        <th>
+                                                            <%= result.yop %>
+                                                        </th>
+                                                        <th>
+                                                            <%= result.resum %>
+                                                        </th>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <form class="form-horizontal" role="form" method="post">
+                                                <button class="btn btn-primary" name="status" type="submit" value="0">Pending</button>
+                                                <button class="btn btn-success" name="status" type="submit" value="1">Accept</button>
+                                                <button class="btn btn-danger" name="status" type="submit" value="2">Reject</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer py-1">
+                                        <a class="float-right text-info" href="/company/appliedstudent/<% locals.user %>">Back</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+</section>

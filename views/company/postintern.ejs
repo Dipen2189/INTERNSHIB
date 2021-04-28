@@ -1,0 +1,251 @@
+<section class="text-gray-600 body-font " style="background-color: 524d5138;">
+    <% if ( SuccessMsg.length > 0 ) { %>
+        <div class="alert alert-success offset-md-2 col-md-7 text-center" role="alert">
+            <p>Message: <%= SuccessMsg %> </p>
+        </div>
+    <% } %>
+    <% if ( ErrorMsg.length > 0 ) { %>
+        <div class="alert alert-danger offset-md-2 col-md-7 text-center" role="alert">
+            <p>Message: <%= ErrorMsg %> </p>
+        </div>
+    <% } %>
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="pt-3 text-center text-muted">Post an Internship</h1>
+        </div>
+    </div>
+    <div class="row py-3">
+        <div class="col-md-12 m-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="title">Title</label>
+                                    <input type="text" name="title" class="form-control"  aria-describedby="titleHelp" placeholder="e.g. Web Development, Android Development" required maxlength="250">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 ">
+                                <div class="form-group">
+                                    <label for="start_date">Start Date for Internship</label>
+                                    <input type="date" name="start_date" class="form-control" id="start_date" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="last_date">Last Date for Applying</label>
+                                    <input type="date" name="last_date" class="form-control" id="last_date" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row ">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="loc_intern">Other Locations</label>
+                                    <select class="js-example-basic-multiple" style="width: 100%;" name="loc_intern" multiple="multiple" required>
+                                     <option value="Ahmedabad">Ahmedabad</option>
+                                     <option value="Agartala">Agartala</option>
+                                     <option value="Anand">Anand</option>
+                                     <option value="Aizawl">Aizawl</option>
+                                        <option value="Bangalore">Bangalore</option>
+                                        <option value="Bharuch">Bharuch</option>
+                                        <option value="Bhavnagar">Bhavnagar</option>
+                                        <option value="Bhubaneswar">Bhubaneswar</option>
+                                        <option value="Bhopal">Bhopal</option>
+                                        <option value="Bhuj">Bhuj</option>
+                                        <option value="Chandigarh">Chandigarh</option>
+                                        <option value="Chennai">Chennai</option>
+                                        <option value="Coimbatore">Coimbatore</option>
+                                        <option value="Dahod">Dahod</option>
+                                        <option value="Dehradun">Dehradun</option>
+                                        <option value="Delhi">Delhi</option>
+                                        <option value="Dispur">Dispur</option>
+                                        <option value="Gangtok">Gangtok</option>
+                                        <option value="Gandhinagar">Gandhinagar</option>
+                                        <option value="Goa">Goa</option>
+                                        <option value="Godhra">Godhra</option>
+                                        <option value="Hyderabad">Hyderabad</option>
+                                        <option value="Indore">Indore</option>
+                                        <option value="Imphal">Imphal</option>
+                                        <option value="Itanagar">Itanagar</option>
+                                        <option value="Jaipur">Jaipur</option>
+                                        <option value="Jamnagar">Jamnagar</option>
+                                        <option value="Junagadh">Junagadh</option>
+                                        <option value="Kolkata">Kolkata</option>
+                                        <option value="Kohima">Kohima</option>
+                                        <option value="Lucknow">Lucknow</option>
+                                        <option value="Morbi">Morbi</option>
+                                        <option value="Modasa">Modasa</option>
+                                        <option value="Mumbai">Mumbai</option>
+                                        <option value="Nadiad">Nadiad</option>
+                                        <option value="Navsari">Navsari</option>
+                                        <option value="Nasik">Nasik</option>
+                                        <option value="Palanpur">Palanpur</option>
+                                        <option value="Patan">Patan</option>
+                                        <option value="Patna">Patna</option>
+                                        <option value="Pune">Pune</option>
+                                        <option value="Ranchi">Ranchi</option>
+                                        <option value="Rajkot">Rajkot</option>
+                                        <option value="Raipur">Raipur</option>
+                                        <option value="Shimla">Shimla</option>
+                                        <option value="Shillong">Shillong</option>
+                                        <option value="Surat">Surat</option>
+                                        <option value="Surendranagar">Surendranagar</option>
+                                        <option value="Thiruvananthapuram">Thiruvananthapuram</option> 
+                                        <option value="Valsad">Valsad</option>
+                                        <option value="Vadodara">Vadodara</option>
+                                        <option value="Vapi">Vapi</option>
+                                      </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="duration">Duration</label>
+                                    <input type="number" class="form-control" name="duration" id="duration" placeholder="Duration" required>
+                                </div>
+                            </div>
+                            <div class="col-md-2 mt-4">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="months" name="duration_per" value="month" class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="months">month</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="weeks" name="duration_per" value="week" class="custom-control-input">
+                                    <label class="custom-control-label" for="weeks">week</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="stipend">Stipend</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend">₹</span>
+                                    </div>
+                                    <input type="number" class="form-control" id="stipend" name="stipend" placeholder="Stipend" aria-describedby="inputGroupPrepend" required>
+                                </div>
+                            </div>
+                        <div class="col-md-3 mt-4">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="s_months" name="stipend_per" value="month" class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="s_months"> per month</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="s_weeks" name="stipend_per" value="week" class="custom-control-input">
+                                    <label class="custom-control-label" for="s_weeks"> per week</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="no_interns">Number of Interns Required</label>
+                                    <input type="number" name="no_interns" class="form-control" id="no_interns" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row my-3">
+                            <div class="col-md-4">
+                                Is part time allowed for this internship ?
+                            </div>
+                            <div class="col-md-1">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="regular" name="part_time" value="yes" class="custom-control-input">
+                                    <label class="custom-control-label" for="regular">Yes</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="workfromhome" name="part_time" value="no" class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="workfromhome">No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="skills">Skills Required</label>
+                                    <select class="js-example-basic-multiple" style="width: 100%;" name="skills" multiple="multiple" required>
+                                        <option value="Python">Python</option>
+                                        <option value="Java">Java</option>
+                                        <option value="Javascript">Javascript</option>
+                                        <option value="Go">Go</option>
+                                        <option value="Swift">Swift</option>
+                                        <option value="C">C</option>
+                                        <option value="C++">C++</option>
+                                        <option value="PHP">PHP</option>
+                                        <option value="Web Development">Web Development</option>
+                                        <option value="App Development">App Development</option>
+                                        <option value="Typescript">Typescript</option>
+                                        <option value="Nodejs">Nodejs</option>
+                                        <option value="Reactjs">Reactjs</option>
+                                        <option value="Android">Android</option>
+                                        <option value="Kotlin">Kotlin</option>
+                                        <option value="Flutter">Flutter</option>
+                                        <option value="Dart">Dart</option>
+                                        <option value="AI">AI</option>
+                                        <option value="Machine Learning">Machine Learning</option>
+                                        <option value="Data Science">Data Science</option>
+                                        <option value="Deep Learning">Deep Learning</option>
+                                        <option value="Embbeded System">Embbeded System</option>
+                                        <option value="Assembly Coding">Assembly Coding</option>
+                                        <option value="Full Stack Developer">Full Stack Developer</option>
+                                        <option value="MySQL">MySQL</option>
+                                        <option value="MongoDB">MongoDB</option>
+                                        <option value="Firebase">Firebase</option>
+                                        <option value="DotNet">.Net</option>
+                                        <option value="AWS">AWS</option>
+                                        <option value="Cloud Computing">Cloud Computing</option>
+                                        <option value="Cyber Security">Cyber Security</option>
+                                        <option value="Angularjs">Angularjs</option>
+                                        <option value="IOT">IOT</option>
+                                        <option value="R programming">R programming</option>
+                                    </select>                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="about">About this Internship</label>
+                                    <textarea name="about" id="about" class="form-control" rows="5" placeholder="Write a bit about this internship" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="apply">Who can apply?</label>
+                                    <textarea name="apply" id="apply" class="form-control" rows="5" placeholder="What characteristics you want in candidates?" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="perks">Perks Offered</label>
+                                    <select class="js-example-basic-multiple" style="width: 100%;" name="perks" multiple="multiple" required>
+                                        <option value="Flexible Schedule">Flexible Schedule</option>
+                                           <option value="Offer Letter">Offer Letter</option>
+                                           <option value="Recommendation Letter">Recommendation Letter</option>
+                                           <option value="Certificate">Certificate</option>
+                                           <option value="5 Days a Week">5 Days a Week</option>
+                                         </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ID of Current user -->
+                        
+                        <button type="submit" name="add_internship" class="btn btn-primary float-right">Add internship</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

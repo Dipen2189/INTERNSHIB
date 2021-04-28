@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Interns-Hub |
+        <%= title %>
+    </title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="<%= baseURL %>/img/icon.png" rel="icon">
+    <link href="<%= baseURL %>/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Times New Roman:300,300i,400,400i,600,600i,700,700i|
+    Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="<%= baseURL %>/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%= baseURL %>/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="<%= baseURL %>/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="<%= baseURL %>/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="<%= baseURL %>/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="<%= baseURL %>/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
+
+
+    <!--for applied internship table-->
+    <link href="<%= baseURL %>/css/datatables.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css " rel="stylesheet ">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <!-- Template Main CSS File -->
+    <link href="<%= baseURL %>/css/style.css" rel="stylesheet">
+    <link href="<%= baseURL %>/css/custom.css" rel="stylesheet">
+
+</head>
+<script type="text/javascript">
+    function confirmInsert() {
+        var c = confirm("Insert Successfully");
+        if (c) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top " style="background: #f7eeea; padding: 5px 0;">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="/" class="logo"><img src="<%= baseURL %>/img/logo.png" alt="logo" style="border-radius: 50px; max-height: 56px;"></a>
+
+            <nav class="navbar">
+                <ul>
+                    <!--header for company-->
+                    <% if(locals.usertype1 === 'company')
+                    {%>
+                        <li><a class="nav-link <% if (title ==='Home' ) { %> active<% } %>" href="/company/home/<%= locals.user %>">Home</a>
+                        </li>
+
+                        <li><a class="nav-link <% if (title ==='Post Internship' ) { %> active <% } %>" href="/company/postintern">Post an internship</a>
+                        </li>
+
+                        <li><a class="nav-link <% if( title ==='Students Applied' ) { %> active <%} %>" href="/company/appliedstudent">Applied Student</a>
+                        </li>
+
+                        <li class="dropdown">
+                            <a class="nav-link">
+                                <span><i class="bi bi-person-lines-fill" style="font-size: x-large;"></i></span></a>
+                            <ul>
+                                <li><a href="/company/compedit">Edit your profile</a></li>
+                                <li><a href="/company/complogout">Logout</a></li>
+                            </ul>
+                        </li>
+                        <!--header after login on authentication for student-->
+                        <% } else {%>
+                            <% if(locals.usertype2 === 'student'){ %>
+
+                                <li><a class="nav-link <% if (title==='student' ) { %> active <% } %>" href="/student/studhome/">Home</a>
+                                </li>
+
+                                <li><a class="nav-link <% if (title==='Applied' ) { %> active <% } %>" href="/student/Applied_Companies">Applied Companies</a>
+                                </li>
+
+                                <li><a class="nav-link <% if (title==='location' ) { %> active <% } %>" href="/student/location">Location</a>
+                                </li>
+
+                                <li><a class="nav-link <% if (title==='freelance' ) { %> active <% } %>" href="/student/freelance">Freelance</a>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a class="nav-link ">
+                                        <span><i class="bi bi-person-lines-fill " style="font-size: x-large;"></i></span></a>
+                                    <ul>
+                                        <li><a href="/student/studedit/<%= locals.user %>">Edit your profile</a></li>
+                                        <li><a href="/student/logout">Logout</a></li>
+                                    </ul>
+                                </li>
+                                <% } else {%>
+                                    <li><a class="nav-link <% if (title==='About_us' ) { %> active <% } %>" href="/">About us</a>
+                                    </li>
+
+                                    <li><a class="nav-link <% if (title==='FAQs' ) { %> active <% } %>" href="/FAQs">FAQs</a>
+                                    </li>
+
+                                    <li class="dropdown"><a href="/" <% if (title==='Register' ) { %>class="active" <% } %>>
+                            <span>Register</span> <i class="bi bi-chevron-down"></i></a>
+                                        <ul>
+                                            <li><a href="/compregister">Register as Company</a></li>
+                                            <li><a href="/studregister">Register as Student</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown"><a href="/" <% if (title==='Login' ) { %> class="active" <% } %>>
+                                    <span>Login</span> <i class="bi bi-chevron-down"></i></a>
+                                        <ul>
+                                            <li><a href="/complogin">Login as Company</a></li>
+                                            <li><a href="/studlogin">Login as Student </a></li>
+                                        </ul>
+                                    </li>
+                                    <% } %>
+                                        <% } %>
+                </ul>
+
+                <!--<i class="bi bi-list mobile-nav-toggle"></i>-->
+            </nav>
+            <!--navbar -->
+        </div>
+    </header>
+    <!-- End Header -->

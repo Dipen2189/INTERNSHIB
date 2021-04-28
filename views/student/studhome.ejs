@@ -1,0 +1,67 @@
+<br>
+<div class="row">
+    <div class="row py-3">
+        <div class="col-md-12">
+            <h1 class="pt-3 text-center text-muted">List of Internships</h1>
+        </div>
+
+        <% if ( SuccessMsg.length > 0 ) { %>
+            <div class="alert alert-success offset-md-3 col-md-6 text-center" role="alert">
+                <p>Message:
+                    <%= SuccessMsg %>
+                </p>
+            </div>
+            <% } %>
+
+                <% result.forEach(function(el, index) { %>
+                    <div class="card" 7>
+                        <div class="card-body">
+                            <h4 class="py-2 "><strong><a href="/student/internsdetails/<%= el.p_id %>"><%= el.title %></a></strong></h4>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                <%= el.cmp_name %>
+                            </h6>
+                            <h6 class="card-subtitle mb-4 text-muted">Location:
+                                <%= el.city %>
+                            </h6>
+                            <div class="table-responsive">
+                                <table class="table table-borderless">
+                                    <thead>
+                                        <tr class="text-muted">
+                                            <th>Start Date</th>
+                                            <th>Duration</th>
+                                            <th>Stipend</th>
+                                            <th>Posted on</th>
+                                            <th>Apply by</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>
+                                                <%= moment(el.start_date).format('Do MMMM, YYYY') %>
+                                            </th>
+                                            <th>
+                                                <%= el.duration %>
+                                                    <%= el.duration_per %>/s</th>
+                                            <th>₹
+                                                <%= el.stipend %> per
+                                                    <%= el.duration_per %>
+                                            </th>
+                                            <th>
+                                                <%= moment(el.start_date).format('Do MMMM, YYYY') %>
+                                            </th>
+                                            <th>
+                                                <%= moment(el.last_date).format('Do MMMM, YYYY') %>
+                                            </th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-footer py-1">
+                            <a class="text-info" href="/student/interndetails/<%= el.p_id %>" style="float: right;">View Details</a>
+                        </div>
+                    </div>
+                    <% }) %>
+    </div>
+</div>
+</div>
