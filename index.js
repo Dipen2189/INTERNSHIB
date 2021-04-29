@@ -26,7 +26,6 @@ app.use(fileUpload(
     __dirname = "C:\Users\Hp\Desktop\interns-hub\public\pdf"
 ));
 //setup the server port
-const port = process.env.PORT;
 
 app.use(cookieParser());
 
@@ -56,7 +55,7 @@ app.use(flash());
 var p = process.env.PORT;
 
 
-app.locals.baseURL = `https://interns-hub.herokuapp.com/:${p}`;
+app.locals.baseURL = `https://interns-hub.herokuapp.com/:${process.env.PORT}`;
 
 //For Static Files 
 app.use(express.static('public'))
@@ -77,6 +76,6 @@ app.use('/company', companyroutes);
 
 
 // listen to the port
-app.listen(port || 5000, () => {
-    console.log("The server is now running on port : ",p)
+app.listen( process.env.PORT|| 5000, () => {
+    console.log("The server is now running on port : ", process.env.PORT);
 })
