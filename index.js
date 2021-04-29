@@ -53,8 +53,10 @@ app.use((req, res, next) => {
 
 app.use(flash());
 
+var port = process.env.PORT;
 
-app.locals.baseURL = `https://interns-hub.herokuapp.com/:${PORT}`;
+
+app.locals.baseURL = `https://interns-hub.herokuapp.com/:${port}`;
 
 //For Static Files 
 app.use(express.static('public'))
@@ -75,6 +77,6 @@ app.use('/company', companyroutes);
 
 
 // listen to the port
-app.listen(process.env.PORT || 5000, () => {
-    console.log("The server is now running on port ", process.env.PORT)
+app.listen(port || 5000, () => {
+    console.log("The server is now running on port : ",port)
 })
