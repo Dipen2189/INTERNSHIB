@@ -21,7 +21,7 @@ exports.viewstudent = function(req, res) {
             res.render('company/viewstudent', {
                 SuccessMsg: req.flash('Success'),
                 ErrorMsg: req.flash('Error'),
-                title: 'home',
+                title: 'view student',
                 usertype: 'company',
                 result: result[0],
                 // result1:result1
