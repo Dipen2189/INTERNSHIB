@@ -189,34 +189,35 @@ exports.postcompanylogin = async function(req, res) {
 }
 
 //student login get 
-exports.studlogin = function(req, res) {
+exports.complogin = function(req, res) {
     res.render('studlogin', { SuccessMsg: req.flash('Success'), ErrorMsg: req.flash('Error'), title: 'Login' });
 };
 
-//student login post
-exports.poststudentlogin = async function(req, res) {
+//company login post
+exports.postcompanylogin = async function(req, res) {
     const uname = req.body.username // from form
     const password = req.body.password
 
-    studentloginmodel.verifylogin(uname, function(error, data) {
+    companyloginmodel.login(uname, function(error, data) {
         if (res.error) {
             req.flash('Error', 'invalid login or password!!');
             res.redirect('/studlogin');
         } else {
             console.log('result', data)
-            req.session.user = data[0].stud_id;
+            req.session.user = data[0].cmp_id;
             req.session.isLoggedIn = true;
-            req.session.usertype2 = 'student';
+            req.session.usertype1 = 'company';
             const uname = data[0].username;
             const pwd = data[0].password;
-            console.log('usertype', req.session.usertype2);
+            console.log('usertype', req.session.usertype1);
 
-            if (req.session.user == data[0].stud_id) {
+
+            if (req.session.user == data[0].cmp_id) {
                 bcrypt.compare(password, pwd).then((result => {
                     console.log('result:', result);
                     if (result) {
                         req.flash('Success', 'Welcome to Interns-Hub!!');
-                        res.redirect('/student/studhome');
+                        res.redirect('/student/home/' + req.session.user);
                     } else {
                         req.flash('Error', 'Passwords do not Match')
                         res.redirect('/studlogin');
@@ -229,5 +230,6 @@ exports.poststudentlogin = async function(req, res) {
                 res.redirect('/studlogin');
             }
         }
+
     })
 }
