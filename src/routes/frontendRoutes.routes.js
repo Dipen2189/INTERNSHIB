@@ -39,7 +39,7 @@ router.post('/complogin', companylogin.company);;
 
 // student login
 router.get('/studlogin', frontendController.studlogin);
-router.post('/student/login',frontendController.poststudentlogin);
+router.post('/studlogin',frontendController.poststudentlogin);
 
 
 //student forgot password get
